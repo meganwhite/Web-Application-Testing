@@ -8,39 +8,46 @@ function App() {
   const [balls, setBalls] = useState(0);
 
 
-  const strike = (strikes)=> {
-    if (strikes >= 3) {
+  const strike = ()=> {
+    if (strikes >= 2) {
         setStrikes(0);
     }
     else {
-        setStrikes(strikes += 1);
+        setStrikes(strikes + 1);
     }
 }
 
-const ball = (balls) => {
-    if (balls >= 4) {
+const ball = () => {
+    if (balls >= 3) {
         setBalls(0);
     }
     else {
-        setBalls(balls += 1);
+        setBalls(balls + 1);
     }
 }
 
-const foul = (strikes) => {
+const foul = () => {
     if (strikes < 2) {
-        setStrikes(strikes += 1);
+        setStrikes(strikes + 1);
     }
 }
 
-const hit = (strikes, balls) => {
+const hit = () => {
     setStrikes(0);
     setBalls(0);
 }
 
   return (
     <div className="App">
-      <Display />
-      <Dashboard />
+      <Display 
+        strikes = {strikes}
+        balls = {balls}
+        />
+      <Dashboard 
+        strike = {strike}
+        ball = {ball}
+        foul = {foul}
+        hit = {hit}/>
     </div>
   );
 }

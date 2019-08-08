@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
-const Dashboard = () => {
+const Dashboard = ({strike, ball, foul, hit}) => {
 
     return (
         <div className = 'dashboard'>
-            <button>Strike</button>
-            <button>Ball</button>
-            <button>Foul</button>
-            <button>Hit</button>
+            <button onClick = {() => strike()}>Strike</button>
+            <button onClick = {() => ball()}>Ball</button>
+            <button onClick = {() => foul()}>Foul</button>
+            <button onClick = {() => hit()}>Hit</button>
         </div>
     )
 }
 
 export default Dashboard;
+
+
